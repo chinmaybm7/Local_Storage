@@ -1,0 +1,26 @@
+<body>
+    <textarea rows="8" cols="40" id="message"></textarea>
+    <br/>
+    <button class="btn btn-primary mt-2" id="savebutton">save</button>
+<script src="script.js" defer></script>
+</body>
+
+
+=============================JS================================
+
+
+let sb = document.getElementById("savebutton");
+let txtArea = document.getElementById("message");
+
+sb.onclick = function() {
+    let txt = txtArea.value;
+    localStorage.setItem("userCont", txt);
+}
+
+// To Automatically display data on Reload
+let storedValue = localStorage.getItem("userCont");
+if (storedValue === null) {
+    txtArea.value = "";
+} else {
+    txtArea.value = storedValue;
+}
